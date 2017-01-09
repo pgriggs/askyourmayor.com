@@ -1,0 +1,285 @@
+<md-content>
+  <div class="md-padding product-container" layout="column">
+    
+    <div layout="column">
+      <md-card>
+
+      <!-- CARD HEADER -->
+
+        <md-card-title>
+          <md-card-title-text>
+            <div layout="row">
+              
+              <!-- Header Left -->
+              <div flex class="product-header-left">
+
+                <img ng-src="https://www.dataroomsearch.com{{ selectedProduct[0].logoURL }}" alt="{{ selectedProuct[0].name }} Logo" class="productpage-logo" />
+                <h1 class="md-display-2">{{ selectedProduct[0].name }}</h1>
+                <span class="md-headline">
+                  <p>{{ selectedProduct[0].type }}</p>
+                </span>
+                <span class="md-subhead">
+                  {{ selectedProduct[0].tagline }}
+                </span>                
+              </div>
+              
+
+              <!-- Header Right -->
+              <div flex class="product-header-right">
+
+                <!-- Reviews -->
+                <div  class="header-review-summary">
+                  <span>
+                    <span class="md-body-2">Reviews:</span> {{ selectedProduct[0].avg_review_rating }} / 5 
+                  </span>
+                  <span>
+                    ({{ selectedProduct[0].num_reviews }} reviewers)
+                  </span>
+                </div>
+
+                <md-divider></md-divider>
+                
+                <!-- Intended Users -->
+                <div class="header-intendedusers" layout="row">
+                  <div flex class="intended-users-left">
+                    <span class="md-body-2">Intended for:</span>
+                    <span ng-repeat="usecase in selectedProduct[0].usecases">
+                      <p class="md-body-1">{{usecase}}</p>
+                    </span>
+                  </div>
+                  <div flex class="intended-users-right">
+                    <span class="md-body-2">Industry Solutions:</span>                
+                    <span ng-if="selectedProduct[0].industries != undefined" ng-repeat="industry in selectedProduct[0].industries">
+                      <p class="md-body-1">{{industry}}</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-divider></md-divider>
+        <md-card-content>
+        <!-- AD -->
+        <!-- dataroomsearch_speedbump -->
+
+          <div class="rail-ad">
+            <adsense ad-client="ca-pub-2024269986118136" ad-slot="4376481808" inline-style="display:inline-block;width:728px;height:90px" ad-format="auto"></adsense>
+          </div>
+
+          <md-divider></md-divider>
+
+          <!-- FEATURES BLOCK -->
+
+          <div class="product-content-block">
+            <h2>Features</h2>       
+
+            <!-- Features Row 1 --> 
+            <div layout="row" layout-xs="column">
+            <!-- Security Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Security</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.security">
+                  <p class="md-body-1">{{feature}}</p>
+                </span>
+              </div>   
+              <!-- Reporting & Tracking Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Reporting & Tracking</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.reporting">
+                  <p class="md-body-1">{{feature}}</p>
+                </span> 
+              </div>              
+              <!-- User Permissions Features -->   
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Permissions & User Management</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.user_management">
+                  <p class="md-body-1">{{feature}}</p>
+                </span>
+              </div>  
+            </div>  
+            <!-- End Row 1 -->
+
+            <md-divider></md-divider>
+
+            <!-- Features Row 2 -->
+            <div layout="row" layout-xs="column">
+
+              <!-- Document Management Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Document Management</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.doc_management">
+                  <p class="md-body-1">{{feature}}</p>
+                </span>
+              </div>  
+
+              <!-- Accessibility Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Accessibility</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.accessibility">
+                  <p class="md-body-1">{{feature}}</p>
+                </span> 
+              </div>
+
+              <!-- Collaboration Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Collaboration & Question/Answer</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.collaboration">
+                  <p class="md-body-1">{{feature}}</p>
+                </span> 
+              </div>             
+            </div> 
+            <!-- End Row 2 -->
+
+            <md-divider></md-divider>
+
+            <!-- Features Row 3 -->
+            <div layout="row" layout-xs="column">
+
+              <!-- Client Management Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Client Management</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.client_management">
+                  <p class="md-body-1">{{feature}}</p>
+                </span>
+              </div>   
+
+              <!-- Customization Features -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Customization</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.customization">
+                  <p class="md-body-1">{{feature}}</p>
+                </span> 
+              </div>
+
+              <!-- Integrations -->
+              <div flex class="feature-column">
+                <span class="md-subhead">
+                  <h3>Integrations</h3>
+                </span>    
+                <span ng-repeat="feature in selectedProduct[0].features.integration">
+                  <p class="md-body-1">{{feature}}</p>
+                </span>               
+              </div> 
+
+            </div>
+            <!-- End Row 3 --> 
+
+          </div>
+
+          
+
+          <md-divider></md-divider>
+
+          <!-- AD -->
+          <!-- dataroomsearch_speedbump_2 -->
+
+          <div class="rail-ad">
+            <adsense ad-client="ca-pub-2024269986118136" ad-slot="8387879005" inline-style="display:inline-block;width:728px;height:90px" ad-format="auto"></adsense>
+          </div>
+          <md-divider></md-divider>
+
+
+
+
+          <h2>Pricing Options</h2>     
+
+          <!-- Test -->
+          <div class="table-container">
+            <table class="plans-table">
+              <th>
+                <td class="plan-name" ng-repeat="plan in selectedProduct[0].plans">
+                  <h3 class="md-tlte">{{plan.name}}<h3>
+                  <p class="md-body-1">{{plan.tagline}}</p>
+                </td>
+              </th> 
+              <tr>
+                <td class="row-name">
+                  <p class="md-body-2">Price</p>
+                </td>
+                <td class="plan-price-block" ng-repeat="plan in selectedProduct[0].plans">
+                  <span class="plan-price">
+                    <p class="md-headline">{{plan.price}}</p>
+                  </span>
+                  <span class="plan-pricing-model">
+                    <p>{{plan.pricing_model}}</p>
+                  </span>
+                </td>
+              </tr>                       
+              <tr ng-repeat="bullet in selectedProduct[0].pricing_plan_bullets">
+                <td class="row-name">
+                  <p class="md-body-2">{{ bullet.name }}</p>
+                </td>
+                <td ng-repeat="plan_value in bullet.value">
+                  <p>{{ plan_value.value }}</p>
+                </td>
+              </tr>
+            </table>
+
+          </div> 
+
+          <md-divider></md-divider>
+
+          <!-- Support Section -->
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <span class="md-subhead">
+                <h2>Product Support</h2>
+              </span>    
+              <md-list>
+                <md-list-item ng-repeat="feature in selectedProduct[0].features.support">
+                  <p>{{feature}}</p>
+                </md-list-item>
+              </md-list>
+            </div>  
+          </div> 
+
+        </md-card-content>
+
+      </md-card>
+    </div>
+
+    <div layout="column" flex>
+      
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Read Guides</span>
+            <span class="md-subhead">Learn More about Virtual Data Rooms</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-content>
+          <a href="https://dataroomsearch.com/guide/what-are-virtual-data-rooms.html">What are Virtual Data Rooms?</a>
+        </md-card-content>
+        <md-divider></md-divider>
+
+        <md-card-actions layout="row">
+          <md-button class="md-primary">Action 1</md-button>
+          <md-button>Action 2</md-button>
+        </md-card-actions>
+      </md-card>
+    </div>
+
+  </div>
+
+</md-content>

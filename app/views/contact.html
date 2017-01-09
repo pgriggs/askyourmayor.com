@@ -1,0 +1,50 @@
+<md-content>
+  <section class="email-section">
+  <h1>Contact your Mayor & city officials with your thoughts on becoming a sanctuary city for immigrants.</h1>
+<div id="form-main">
+  <div id="form-div">
+    <form class="form" id="form1">
+      <p class="name">
+        <input name="name" type="text" class="feedback-input" placeholder="Your Name" id="name" ng-model="userName" required ng-validate/>
+      </p>
+
+      <p class="address">
+        <input name="city" type="text" class="feedback-input" placeholder="Your City" id="city" ng-model="userCity" required/ validate>
+        <input name="state" type="text" class=" feedback-input" placeholder="Your State" id="state" ng-model="userState" ng-keyup="getCivicData()" ng-required ng-validate/>
+      </p>
+      
+      <p class="email">
+        <input name="email" type="text" class="feedback-input" id="email" placeholder="Your Email" ng-model="userEmail" ng-required ng-validate/>
+      </p>
+
+      <p ng-if="userName !== ''" class="email-intro" ng-model="emailIntro">Dear Mayor & city officials,<br><br>My name is <span ng-bind="userName"></span> and I live in <span ng-bind="userCity"></span>, <span ng-bind="userState"></span>.
+      </p>
+      <p class="text">
+        <textarea name="comment" id="comment" ng-model="emailBody" cols="50" rows="10" placeholder="Put your thoughts on becoming a sanctuary City for immigrants here."></textarea>
+      </p>
+      <p ng-if="userName !== ''" class="email-intro" ng-model="emailOutro">Thank you for you time and consideration.<br><br>
+      Sincerely,<br>
+      <span ng-bind="userName"></span>.
+      </p>
+
+      <md-radio-group ng-model="makeEmailPublic" >
+      
+        <md-radio-button value="true" class="blue">Post my message publically on AskYourMayor.com</md-radio-button>
+        <md-radio-button value="false" class="red">Keep my message private.</md-radio-button>
+
+      </md-radio-group>
+
+      <div class="submit">
+        <a ng-click="postEmail()" ng-href="mailto:{{ response.officials[0].emails[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com&cc=Info@some.com{{ response.officials[1].emails[0] }}&cc={{ response.officials[1].emails[0] }}" id="button-blue1" validate>SEND Email</a>
+        <div class="ease"></div>
+      </div>
+
+      <!--
+      <div class="submit">
+        <a ng-href="mailto:{{ response.officials[0].emails[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body={{emailBody}}&cc=info@askyourmayor.com&cc={{ response.officials[1].emails[0] }}&cc={{ response.officials[1].emails[0] }}" id="button-red1" validate>SEND w/ Gmail</a>
+        <div class="ease button-red"></div>  
+      </div>-->
+    </form>
+  </div>
+  </section>
+</md-content> 

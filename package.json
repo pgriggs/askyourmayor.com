@@ -1,0 +1,21 @@
+{
+  "name": "comfyProduct-template",
+  "description": "An AngularJS Material website design for launching, with a focus on SEO",
+  "peerDependencies": {
+    "angular": "@>=1.3 <1.6",
+    "angular-animate": "^@>=1.3 <1.6",
+    "angular-aria": "@>=1.3 <1.6",
+    "angular-messages": "@>=1.3 <1.6"
+  },
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "angular-aria": "^1.5.5",
+    "angular-material": "git+https://github.com/angular/bower-material.git#master",
+    "angular-messages": "^1.5.5",
+    "angular-socialshare": "^2.2.3"
+  },
+  "scripts": {
+    "prestart": "npm update"
+  }
+}

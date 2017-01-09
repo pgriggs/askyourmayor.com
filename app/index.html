@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="routerApp">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title ng-bind="metaservice.metaTitle()"></title>
+        <meta name="description" content="{{ metaservice.metaDescription() }}" />
+        <!-- CSS (load ngMaterial CSS) -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.1/angular-material.min.css">
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/simple-line-icons/css/simple-line-icons.css">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <!-- md-data-table module css -->
+        <link rel="stylesheet" href="//rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
+        <!-- add your own css here -->
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <!-- Google Fonts! -->
+        <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Lato:300,400|Permanent+Marker|Noto+Sans|PT+Serif|Open+Sans|Source+Sans+Pro:400,300,600" rel="stylesheet" type="text/css">
+
+        <meta property="og:title" content="#AskYourMayor - Email your mayor about becoming a sanctuary city for immigrants"><meta property="og:description" content="">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https//askyourmayor.com">
+        <meta property="og:image" content="/assets/img/new-header.jpg">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="https//askyourmayor.com">
+        <meta name="twitter:creator" content="@askyourmayor">
+        <meta name="twitter:title" content="#AskYourMayor - Email your mayor about becoming a sanctuary city for immigrants">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="/assets/img/new-header.jpg">
+
+        <meta name="author" content="Red Envelope Intl, Inc.">
+
+        <!-- rewrite rules for local dev environment. This allows individual routes to be accessed directly without the angularjS # -->
+
+
+        <base href="/">
+        <!-- google analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-73922948-6', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+    </head>
+
+    <!-- apply our angular app to our site -->
+    <body layout-fill>
+
+    <!-- loading image -->
+      <section ng-if="doneLoading == 'false'" class="hero loading fadeOut">
+            <div class="">
+            <h1>#AskYourMayor</h1>
+            </div>
+      </section>
+
+
+    <!-- MAIN CONTENT ============================== -->
+
+        <div ui-view=""></div>
+
+        
+        <div ng-if="doneLoading !== 'false'" class="footer">
+            <h3>Powered by <a href="http://enviesapp.com">Envíes</a></h3>
+        </div>
+        
+        <!-- JavaScript!! -->
+        <!-- JS (load angular, ui-router, and our custom js file) -->
+        <script src="//code.angularjs.org/1.5.8/angular.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+
+        <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
+        <script src="//gitcdn.link/repo/angular/bower-material/master/angular-material.js"></script>
+
+        <script src="//rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.js"></script>
+
+       <!-- <script src="js/services/meta-service.js"></script> -->
+
+       <!-- Make Adsense Work Again -->
+        <script src="js/directives/angular-sense.js"></script>
+
+        <!-- comfy AngularJs files -->
+        <script src="js/app.js"></script>
+        <script src="js/controllers/sharedController.js"></script>
+    </body>
+</html>
