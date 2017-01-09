@@ -91,7 +91,7 @@ svg {
 }
 
 svg.chart {
-  margin: 0 auto;
+  margin-left: 100px;
 }
 
 /* social */
@@ -824,6 +824,9 @@ input:-webkit-autofill {
     width: 88%;
     padding-left: 3%;
     padding-right: 3%;
+  }
+  svg.chart {
+  margin-left: 18px;
   }
 }
 
