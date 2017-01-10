@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngMaterial', 'ui.router', 'shared', 'ngSanitize', '720kb.socialshare']);
+var routerApp = angular.module('routerApp', ['ngMaterial', 'ui.router', 'shared', 'ngSanitize', '720kb.socialshare', 'angularUtils.directives.dirPagination', 'infinite-scroll']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     

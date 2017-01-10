@@ -22,10 +22,15 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
 
       $scope.inputText = '';
 
+      $scope.openLetters = [];
+
 $scope.$watch('inputText', function(newText, oldText) {
   $scope.emailBody = $scope.inputText;
 });
 
+/* pagination page size */
+
+  $scope.pageSize = 10;
 
 /* PRODUCTS TABLE SETUP */
   $scope.selected = [];
@@ -132,10 +137,10 @@ $scope.$watch('inputText', function(newText, oldText) {
                 method: 'GET'
 
               }).then(function successCallback(response) {
-                  $scope.publicPosts = response.data;
+                  $scope.openLetters = angular.fromJson(response.data);
                   $scope.message = "show";
-                 
-                  console.log($scope.response) 
+                 debugger
+                  console.log($scope.openLetters) 
 
                   // this callback will be called asynchronously
                   // when the response is available
@@ -173,7 +178,7 @@ $scope.$watch('inputText', function(newText, oldText) {
           $http({
 
           method: 'POST',
-          url: 'http://127.0.0.1:5000/createEmail' + '?title=thoughts about becoming a sanctuary city for immigrants' + '&content=' + 'Dear Mayor and city officials, my name is ' + $scope.userName + ' and I live in ' + $scope.userCity + ', ' + $scope.userState + '. ' + $scope.emailBody + ' Thank you for your time and consideration.' + 'Sincerely' + $scope.userName + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState,
+          url: 'http://127.0.0.1:5000/createEmail' + '?title=' + '&content=' + $scope.emailBody + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&makeEmailPublic=' + $scope.makeEmailPublic + '&userEmail=' + $scope.userEmail,
       }).success(function () {
           $scope.successMessage = 'show';
           debugger
@@ -184,15 +189,14 @@ $scope.$watch('inputText', function(newText, oldText) {
                   // or server returns response with an error status.
                 };
     }
-// Select product data when a product page is requested
+// Select product data when
 
-  
-  $scope.toggleLimitOptions = function () {
-    $scope.limitOptions = $scope.limitOptions ? undefined : [5, 10, 15];
-  };
-  
-  $scope.getTypes = function () {
-    return ['Candy', 'Ice cream', 'Other', 'Pastry'];
+
+  $scope.loadMore = function() {
+    var last = $scope.openLetters[$scope.openLetters.length - 1];
+    for(var i = 1; i <= 8; i++) {
+      $scope.openLetters.push(last + i);
+    }
   };
   
   $scope.loadStuff = function () {
@@ -200,16 +204,7 @@ $scope.$watch('inputText', function(newText, oldText) {
       // loading
     }, 2000);
   }
-  //logs item selection in the hompage datatable and uses the selected product's urlSlug as a unique identifier
-  $scope.logItem = function (item) {
-    console.log(item.name, 'was selected');
-  	if( $scope.compareProduct1 == undefined ){
-  		$scope.compareProduct1 = item.urlSlug;
-  	} else{
-  		$scope.compareProduct2 = item.urlSlug;
-  		$state.go("comparepage", {"compareProduct1": $scope.compareProduct1, "compareProduct2": $scope.compareProduct2});
-  	}
-  };
+
 
   // Select product data when a comparison page is requested
   if( $state.current.name == 'comparepage' ){

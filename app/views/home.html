@@ -13,7 +13,7 @@
       </section>
       <section class="the-why">
         <br>
-        <h2>Most unauthorized immigrants residing in the U.S.<br>have been living here for over 10 years.</h2>  
+        <h2>Most unauthorized immigrants residing in the U.S. are long-term residents, living here for over 10 years.</h2>  
           <figure>
   <figcaption></figcaption>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="chart" aria-labelledby="title" role="img">
@@ -31,13 +31,14 @@
 
       <section class="the-how">
         
-        <h2>Currently, every U.S. city is deciding whether or not to become a sanctuary city for immigrants. <span class="lighten">Contact your mayor today with your thoughts about becoming a sanctuary city.</span></h2>
+        <h2>Cities all over the U.S. are deciding whether or not to <span class="lighten">declare themselves a sanctuary city for immigrants</span></h2>
         <md-button class="contact" ui-sref="contact">Voice Your Concerns Here</md-button>
+        <p>What is a <a href="https://en.wikipedia.org/wiki/Sanctuary_city">sanctuary city</a>?</p>
       </section>
 
     <section class="share">
         <div class="container">
-              <h2>Share with your community!</h2>
+              <h2>Share AskYourMayor!</h2>
             <ul class="list-inline list-social">
                 <li class="social-twitter">
                     <a href="#" socialshare
@@ -62,6 +63,26 @@
                 </li>
             </ul>
         </div>
+    </section>
+
+    <section class="open-letters">
+    <h1>{{ openLetters.length }} open letters to mayors & city officials.</h1>
+      <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+      <md-card ng-repeat="openLetter in openLetters" class="">
+        <md-card-title>
+          <md-card-title-text>
+            <h3>{{openLetter.userName}} from {{openLetter.userCity}}, {{openLetter.userState}}.</h3>
+          </md-card-title-text>
+        </md-card-title>
+          <md-card-content>
+            <p class="intro">Dear mayor & city officials</p>
+            <p class="intro">My name is {{ openLetter.userName }} and I live in {{ openLetter.userCity }}, {{ openLetter.userState }}.</p>
+            <p>{{ openLetter.content }}</p>
+            <p class="outro">Sincerely,<br>{{ openLetter.userName }}.</p>
+          </md-card-content>
+      </md-card>
+      </div>
+     <!-- <dir-pagination-controls></dir-pagination-controls> -- >
     </section>
       
     </md-content>

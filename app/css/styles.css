@@ -176,7 +176,7 @@ section.share ul.list-social li.social-linkedin a:hover {
     border-radius: 3px;
     padding: 20px 16px;
     display: inline-block;
-    margin: 0px auto 60px;
+    margin: 0px auto 30px;
     text-transform: uppercase;
     letter-spacing: .25em;
     font-family: 'Varela Round', sans-serif;
@@ -202,6 +202,8 @@ section.share ul.list-social li.social-linkedin a:hover {
 
 .the-why {
   text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .the-why p {
@@ -225,6 +227,35 @@ section.share ul.list-social li.social-linkedin a:hover {
     margin: 0 auto;
     padding-bottom: 23px;
     padding-top: 23px;
+}
+
+.open-letters {
+  text-align: center;
+  max-width: 900px;
+  margin: 46px auto 60px auto;
+}
+
+.open-letters .md-card {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.open-letters md-card-content {
+  padding-right: 25px;
+}
+
+.open-letters p {
+  text-align: left;
+}
+
+.open-letters h3 {
+}
+
+.open-letters .intro {
+}
+
+.open-letters .outro {
+
 }
 
 .checkboxes > md-checkbox {
@@ -375,11 +406,18 @@ md-content .product-container {
 
 .footer {
   text-align: center;
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  background-color: #fff;
+  z-index: 2;
 }
 
-.footer md-card {
-  background-color: transparent;
-  box-shadow: 0 0 0 0;
+.footer h3 {
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 2vmin;
 }
 
 /* ********************************************* */
@@ -813,8 +851,11 @@ input:-webkit-autofill {
   .bar text.text1 {
     fill: rgba(193, 193, 193, 0.93) !important;
   }
-  input#comment {
-    width: 91%;
+  textarea#comment {
+    width: 90%;
+  }
+  .footer h3 {
+    font-size: 4vmin;
   }
 }
 
