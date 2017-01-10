@@ -805,7 +805,7 @@ input:focus, textarea#comment:focus {
   background-color:white;
 }
 
-.email-section h1 {
+.email-section h2 {
   text-align: center;
   padding-top: 50px;
   max-width: 600px;
