@@ -178,10 +178,9 @@ $scope.$watch('inputText', function(newText, oldText) {
           $http({
 
           method: 'POST',
-          url: 'http://127.0.0.1:5000/createEmail' + '?title=' + '&content=' + $scope.emailBody + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&makeEmailPublic=' + $scope.makeEmailPublic + '&userEmail=' + $scope.userEmail,
+          url: 'http://127.0.0.1:5000/createEmail' + '?title=Some title' + '&content=' + $scope.emailBody + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&makeEmailPublic=' + $scope.makeEmailPublic,
       }).success(function () {
           $scope.successMessage = 'show';
-          debugger
       }), function errorCallback(error) {
                   $scope.error = error;
                   
