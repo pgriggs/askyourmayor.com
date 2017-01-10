@@ -139,7 +139,7 @@ $scope.$watch('inputText', function(newText, oldText) {
               }).then(function successCallback(response) {
                   $scope.openLetters = angular.fromJson(response.data);
                   $scope.message = "show";
-                 debugger
+                 
                   console.log($scope.openLetters) 
 
                   // this callback will be called asynchronously
