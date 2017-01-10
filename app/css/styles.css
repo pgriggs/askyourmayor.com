@@ -15,8 +15,8 @@ body > md-toolbar {
 
 md-card {
   max-width:960px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
@@ -235,7 +235,7 @@ section.share ul.list-social li.social-linkedin a:hover {
   margin: 46px auto 60px auto;
 }
 
-.open-letters .md-card {
+.open-letters md-card {
   margin-left: 15px;
   margin-right: 15px;
 }
