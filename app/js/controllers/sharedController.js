@@ -102,18 +102,15 @@ $scope.$watch('inputText', function(newText, oldText) {
       if( $scope.userState.length >= 2 ){
       $http({
             //  url: 'http://api.giphy.com/v1/gifs/random',
-                url : 'https://www.googleapis.com/civicinfo/v2/representatives/ocd-division/country:us/state:ca/place:san_diego?key=AIzaSyCxbmvVMAG7TkNmY7vOuldHS2TJYHyvSPo',
+                url : 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyCxbmvVMAG7TkNmY7vOuldHS2TJYHyvSPo&address=' + $scope.userCity + '%20' + $scope.userState,
                 method: 'GET',
 
             //  params: {api_key: 'dc6zaTOxFJmzC', tag: self.selected.tag},
                 dataType: 'jsonp',
                 data: ''
               }).then(function successCallback(response) {
-                  $scope.response = response.data;
-                  $scope.message = "show";
-                 
-                  console.log($scope.response) 
-
+                  $scope.response = response.data;  
+                   $scope.message = "show";
                   // this callback will be called asynchronously
                   // when the response is available
                 }, function errorCallback(error) {
@@ -133,13 +130,12 @@ $scope.$watch('inputText', function(newText, oldText) {
       $scope.loadingIcon = 'show';
       $http({
             //  url: 'http://api.giphy.com/v1/gifs/random',
-                url: 'http://127.0.0.1:5000/publicEmails',
+                url: 'https://api.askyourmayor.com/publicEmails',
                 method: 'GET'
 
               }).then(function successCallback(response) {
                   $scope.openLetters = angular.fromJson(response.data);
-                  $scope.message = "show";
-                 
+                  $scope.message = "show";    
                   console.log($scope.openLetters) 
 
                   // this callback will be called asynchronously
@@ -159,7 +155,7 @@ $scope.$watch('inputText', function(newText, oldText) {
 
       $http({
             method: 'POST',
-            url: 'http://127.0.0.1:5000/createUser' + '?userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&userEmail=' + $scope.userEmail,
+            url: 'https://api.askyourmayor.com/createUser' + '?userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&userEmail=' + $scope.userEmail,
       }).success(function () {
 
          }), function errorCallback(error) {
@@ -178,7 +174,7 @@ $scope.$watch('inputText', function(newText, oldText) {
           $http({
 
           method: 'POST',
-          url: 'http://127.0.0.1:5000/createEmail' + '?title=Some title' + '&content=' + $scope.emailBody + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&makeEmailPublic=' + $scope.makeEmailPublic,
+          url: 'https://api.askyourmayor.com/createEmail' + '?title=Some title' + '&content=' + $scope.emailBody + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&makeEmailPublic=' + $scope.makeEmailPublic,
       }).success(function () {
           $scope.successMessage = 'show';
       }), function errorCallback(error) {
