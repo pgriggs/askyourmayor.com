@@ -99,7 +99,7 @@ $scope.$watch('inputText', function(newText, oldText) {
 
       $scope.getCivicData = function (){
 
-      if( $scope.userState.length >= 2 ){
+      if( $scope.userState.length >= 2 || $scope.userCity.length >= 3){
       $http({
             //  url: 'http://api.giphy.com/v1/gifs/random',
                 url : 'https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyCxbmvVMAG7TkNmY7vOuldHS2TJYHyvSPo&address=' + $scope.userCity + '%20' + $scope.userState,
@@ -109,8 +109,10 @@ $scope.$watch('inputText', function(newText, oldText) {
                 dataType: 'jsonp',
                 data: ''
               }).then(function successCallback(response) {
-                  $scope.response = response.data;  
+                  $scope.response = response.data; 
+                  console.log($scope.response)
                    $scope.message = "show";
+                   debugger 
                   // this callback will be called asynchronously
                   // when the response is available
                 }, function errorCallback(error) {
@@ -147,8 +149,9 @@ $scope.$watch('inputText', function(newText, oldText) {
                   // or server returns response with an error status.
                 });
             }
+      if($state.current.name == 'home' || $state.current.name == 'home2') {
       $scope.getPublicPosts();
-
+      }
 
      // api call to get all public posts
       $scope.postEmail = function (){
