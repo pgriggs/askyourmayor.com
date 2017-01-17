@@ -12,6 +12,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $locationProvider)
             templateUrl: 'views/home.html',
             controller: 'sharedController'
         })
+        .state('home2', {
+            url: '/v2',
+            templateUrl: 'views/home2.html',
+            controller: 'sharedController'
+        })
         // HOME STATES AND NESTED VIEWS ========================================
         .state('contact', {
             url: '/contact',

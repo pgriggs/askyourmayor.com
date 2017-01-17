@@ -112,7 +112,10 @@ $scope.$watch('inputText', function(newText, oldText) {
                   $scope.response = response.data; 
                   console.log($scope.response)
                    $scope.message = "show";
-                   debugger 
+                       for (var index = 0; index < $scope.response.offices.length; index++) {
+                        console.log($scope.reponse.offices[index]);
+                        debugger
+                        }
                   // this callback will be called asynchronously
                   // when the response is available
                 }, function errorCallback(error) {
@@ -160,6 +163,7 @@ $scope.$watch('inputText', function(newText, oldText) {
             method: 'POST',
             url: 'https://api.askyourmayor.com/createUser' + '?userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&userEmail=' + $scope.userEmail,
       }).success(function () {
+        $scope.successPost = 'show';
 
          }), function errorCallback(error) {
                   $scope.error = error;
@@ -167,9 +171,7 @@ $scope.$watch('inputText', function(newText, oldText) {
                   // called asynchronously if an error occurs
                   // or server returns response with an error status.
                 };
-  //    if($scope.makePostPublic == 'true'){
       $scope.createPost()
-  //    }
     }
 
     $scope.createPost = function () {
@@ -179,13 +181,27 @@ $scope.$watch('inputText', function(newText, oldText) {
           method: 'POST',
           url: 'https://api.askyourmayor.com/createEmail' + '?title=Some title' + '&content=' + $scope.emailBody + '&userName=' + $scope.userName + '&userCity=' + $scope.userCity + '&userState=' + $scope.userState + '&makeEmailPublic=' + $scope.makeEmailPublic,
       }).success(function () {
-          $scope.successMessage = 'show';
+
+          $scope.successPost = 'show';
+
       }), function errorCallback(error) {
                   $scope.error = error;
                   
                   // called asynchronously if an error occurs
                   // or server returns response with an error status.
                 };
+    }
+
+    $scope.postbutton = function (){
+      $scope.postToSite == 'show';
+      $scope.postEmail()
+    }
+
+    $scope.callSheriff = function () {
+      $scope.successCallSheriff = 'show';
+    }
+    $scope.callMayor = function () {
+      $scope.successCallMayor = 'show';
     }
 // Select product data when
 

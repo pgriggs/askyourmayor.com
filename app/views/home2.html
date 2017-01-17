@@ -1,0 +1,89 @@
+<!-- Main Content Area -->
+  <div flex layout="row" layout-fill>
+    <md-content flex>
+
+
+      <!-- Section 1: Hero -->
+      <section class="hero">
+      	<md-card class="">
+      		<div class="">
+      			<h1>ASK your MAYOR</h1>
+      		</div>
+      	</md-card>
+      </section>
+      <section class="the-why">
+        <br>
+        <h2>Most unauthorized immigrants residing in the U.S. are long-term residents, living here for over 10 years</h2>  
+          <figure>
+  <figcaption></figcaption>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="chart" aria-labelledby="title" role="img">
+  <title id="title"></title>
+  <g class="bar">
+    <rect class="rect1" x="25" width="27%"></rect>
+    <text class="text1" x="35" y="15" dy=".35em">66% > 10yrs</text>
+    <rect class="rect2" x="200" y="0" width="6%"></rect>
+        <text class="text2" x="210" y="15" dy=".35em">14% < 5yrs</text>
+  </g>
+</svg>
+</figure>
+  <p>*data from <a href="http://www.pewresearch.org/fact-tank/2016/11/03/5-facts-about-illegal-immigration-in-the-u-s/#number-5" target="_blank"> PewResearchCenter</a></p>
+      </section>
+
+      <section class="the-how">
+        
+        <h2>Help make your city a sactuary city for immigrants.<span class="lighten">Contact your mayor today about becoming a sacntuary city.</span></h2>
+        <md-button class="contact" ui-sref="contact">Ask your Mayor here</md-button>
+        <p>What is a <a href="https://en.wikipedia.org/wiki/Sanctuary_city">sanctuary city</a>?</p>
+      </section>
+
+    <section class="share">
+        <div class="container">
+              <h2>Share AskYourMayor!</h2>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="#" socialshare
+                socialshare-provider="twitter"
+                socialshare-text=""
+                socialshare-hashtags="AskYourMayor,SanctuaryCity,Immigration"
+                socialshare-url="https://askyourmayor.com"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-facebook">
+                    <a href="#" socialshare
+                socialshare-provider="facebook"
+                socialshare-text=""
+                socialshare-hashtags="AskYourMayor,SanctuaryCity,Immigration"
+                socialshare-url="https://askyourmayor.com"><i class="fa fa-facebook"></i></a>
+                </li> 
+                <li class="social-linkedin">
+                    <a href="#" socialshare
+                socialshare-provider="linkedin"
+                socialshare-text=""
+                socialshare-hashtags="AskYourMayor,SanctuaryCity,Immigration"
+                socialshare-url="https://askyourmayor.com"><i class="fa fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="open-letters">
+    <h1>{{ openLetters.length }} open letters to mayors & city officials</h1>
+      <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+      <md-card ng-repeat="openLetter in openLetters" class="">
+        <md-card-title>
+          <md-card-title-text>
+            <h3>{{openLetter.userName}} from {{openLetter.userCity}}, {{openLetter.userState}}.</h3>
+          </md-card-title-text>
+        </md-card-title>
+          <md-card-content>
+            <p class="intro">Dear mayor & city officials,</p>
+            <p class="intro">My name is {{ openLetter.userName }} and I live in {{ openLetter.userCity }}, {{ openLetter.userState }}.</p>
+            <p>{{ openLetter.content }}</p>
+            <p class="outro">Sincerely,<br>{{ openLetter.userName }}</p>
+          </md-card-content>
+      </md-card>
+      </div>
+     <!-- <dir-pagination-controls></dir-pagination-controls> -- >
+    </section>
+      
+    </md-content>
+  </div>

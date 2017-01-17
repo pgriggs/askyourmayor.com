@@ -38,31 +38,59 @@
         <span ng-repeat="office in response.offices | filter:'Mayor'">
           <span ng-repeat="officialIndice in office.officialIndices">
               <span ng-if="response.officials[officialIndice].emails[0]">
-              <a ng-click="postEmail()" ng-if="response.officials[officialIndice].emails[0]" ng-href="mailto:{{ response.officials[officialIndice].emails[0] }}{{ response.officials[officialIndice].phones[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com" id="button-blue1" validate>Email your mayor</a>
+              <a ng-click="postEmail()" ng-if="response.officials[officialIndice].emails[0]" ng-href="mailto:{{ response.officials[officialIndice].emails[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com" id="button-blue1" validate><span ng-if="successPost !== 'show'">Email your mayor</span><span ng-if="successPost == 'show'">{{response.officials[officialIndice].emails[0]}}</span></a>
               <div class="ease"></div>
               </span>
               <span ng-if="response.officials[officialIndice].phones[0]">
-              <a ng-click="postEmail()" ng-href="tel:{{ response.officials[officialIndice].phones[0] }}" id="button-blue1" validate>Call mayor</a>
-              <div class="ease"></div>
-              <p ng-if="response.officials[officialIndice].phones[0] == undefined && response.officials[officialIndice].emails[0] == undefined">We didnt your mayor's contact info, but we found the next best person for you to contact:</p>
-              </span>
-          </span>
-        </span>
-
-        <span ng-repeat="office in response.offices | filter:'Sheriff'">
-          <span ng-repeat="officialIndice in office.officialIndices">
-            <span ng-if="response.officials[officialIndice].emails[0]">
-              <a ng-click="postEmail()" ng-href="mailto:{{ response.officials[officialIndice].emails[0] }}{{ response.officials[officialIndice].phones[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com" id="button-blue1" validate>Email sheriff</a>
+              <a ng-click="callMayor()" ng-href="tel:{{ response.officials[officialIndice].phones[0] }}" id="button-blue1" validate>
+                <span ng-if="successCallMayor !== 'show'">Call your mayor
+                </span>
+                <span ng-if="successCallMayor == 'show'">{{response.officials[officialIndice].phones[0]}}
+                </span>
+              </a>
               <div class="ease"></div>
               </span>
-              <span ng-if="response.officials[officialIndice].phones[0]">
-              <a ng-click="postEmail()" ng-if="response.officials[officialIndice].phones[0]" ng-href="tel:{{ response.officials[officialIndice].phones[0] }}" id="button-blue1" validate>Call sheriff</a>
-              <div class="ease"></div>
-              </span>
-              
           </span>
         </span>
       </div>
+      <br>
+      <div class="submit">
+        <span ng-repeat="office in response.offices | filter:'Sheriff'">
+          <span ng-repeat="officialIndice in office.officialIndices">
+            <span ng-if="response.officials[officialIndice].emails[0]">
+              <a ng-click="postEmail()" ng-href="mailto:{{ response.officials[officialIndice].emails[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com" id="button-blue1" validate>
+                <span ng-if="successPost !== 'show'">Email your Sheriff
+                </span>
+                <span ng-if="successPost == 'show'">{{ response.officials[officialIndice].emails[0] }}
+                </span></a>
+              <div class="ease"></div>
+              </span>
+              <span ng-if="response.officials[officialIndice].phones[0]">
+              <a ng-click="callSheriff()" ng-if="response.officials[officialIndice].phones[0]" ng-href="tel:{{ response.officials[officialIndice].phones[0] }}" id="button-blue1" validate>
+                <span ng-if="successCallSheriff !== 'show'">Call your Sheriff
+                </span>
+                <span ng-if="successCallSheriff == 'show'">{{response.officials[officialIndice].phones[0]}}
+                </span>
+              </a>
+              <div class="ease"></div>
+              </span>
+          </span>
+        </span>
+      </div>
+      <br>
+      <div ng-if="userState.length >= 2" class="submit">
+              <a ng-click="postbutton()" id="button-blue1" validate>
+                <span ng-if="postToSite !== 'show'">Post to AskYourMayor.com
+                </span>
+                <span ng-if="postToSite == 'show'">
+                Success!
+                </span>
+              </a>
+              <div class="ease"></div>
+        
+      </div>
+      <br>
+      <p ng-if="userState.length >= 2">*Don't see an option to email your mayor or other officials? You can still show your support by posting your message as an open letter on AskYourMayor.com!</p>
 
       <!--
       <div class="submit">
