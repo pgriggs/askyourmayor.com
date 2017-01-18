@@ -15,7 +15,8 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
       $scope.userState = "";
       $scope.userEmail = "";
       $scope.userName = "";
-      $scope.emailBody = "";
+      $scope.emailBody = "must";
+      $scope.emailExample = "We must act as a sanctuary city for immigrants now more than ever. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionaly, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10years, and are soundly integrated into out local communities.";
       $scope.emailIntro = "";
       $scope.emailOutro = "";
       $scope.makeEmailPublic = "";
@@ -24,12 +25,11 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
 
       $scope.openLetters = [];
 
-$scope.$watch('inputText', function(newText, oldText) {
-  $scope.emailBody = $scope.inputText;
-});
+      $scope.$watch('inputText', function(newText, oldText) {
+        $scope.emailBody = $scope.inputText;
+      });
 
 /* pagination page size */
-
   $scope.pageSize = 10;
 
 /* PRODUCTS TABLE SETUP */
@@ -112,10 +112,15 @@ $scope.$watch('inputText', function(newText, oldText) {
                   $scope.response = response.data; 
                   console.log($scope.response)
                    $scope.message = "show";
-                       for (var index = 0; index < $scope.response.offices.length; index++) {
-                        console.log($scope.reponse.offices[index]);
+                       for (var index = 0; index < response.data.offices.length; index++) {
+                        console.log(response.data.offices[index]);
+                        if (response.data.offices[index].name == 'Mayor')
+                          $scope.theMayor = "here";
                         debugger
                         }
+                        if (response.data.offices[index].name == 'Sheriff'){
+                          $scope.theSheriff == "here";
+                              } else {}
                   // this callback will be called asynchronously
                   // when the response is available
                 }, function errorCallback(error) {

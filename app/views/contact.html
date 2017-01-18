@@ -5,7 +5,7 @@
   <div id="form-div">
     <form class="form" id="form1">
       <p class="name">
-        <input name="name" type="text" class="feedback-input" placeholder="Your Name" id="name" ng-model="userName" required ng-validate/>
+        <input name="name" type="text" class="feedback-input" placeholder="Your First Name" id="name" ng-model="userName" required ng-validate/>
       </p>
 
       <p class="address">
@@ -20,7 +20,7 @@
       <p ng-if="userName !== ''" class="email-intro" ng-model="emailIntro">Dear Mayor & city officials,<br><br>My name is <span ng-bind="userName"></span> and I live in <span ng-bind="userCity"></span>, <span ng-bind="userState"></span>.
       </p>
       <p class="text">
-        <textarea name="comment" id="comment" ng-model="emailBody" cols="50" rows="10" placeholder="Put your thoughts on becoming a sanctuary City for immigrants here."></textarea>
+        <textarea name="comment" id="comment" ng-model="emailBody" cols="50" rows="10" placeholder="It's important that we act as a sanctuary city for immigrants because..."></textarea>
       </p>
       <p ng-if="userName !== ''" class="email-intro" ng-model="emailOutro">Thank you for you time and consideration.<br><br>
       Sincerely,<br>
@@ -78,13 +78,9 @@
         </span>
       </div>
       <br>
-      <div ng-if="userState.length >= 2" class="submit">
+      <div ng-if="userState.length >= 2 && theSheriff !== 'here' &&  theMayor !== 'here'" class="submit">
               <a ng-click="postbutton()" id="button-blue1" validate>
-                <span ng-if="postToSite !== 'show'">Post to AskYourMayor.com
-                </span>
-                <span ng-if="postToSite == 'show'">
-                Success!
-                </span>
+                Post to AskYourMayor.com
               </a>
               <div class="ease"></div>
         

@@ -300,7 +300,7 @@ table.md-table td.md-cell {
 .hero.loading.fadeOut {
   min-height:90vh;
   background-image: url(/assets/img/new-header.jpg);
-  -webkit-animation-duration: 2.5s;animation-duration: 2.5s;
+  -webkit-animation-duration: 3.0s;animation-duration: 3.0s;
   -webkit-animation-fill-mode: both;animation-fill-mode: both;
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
