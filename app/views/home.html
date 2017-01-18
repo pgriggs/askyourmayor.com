@@ -68,7 +68,7 @@
     <section class="open-letters">
     <h1>{{ openLetters.length }} public messages sent to mayors & city officials</h1>
       <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
-      <md-card ng-repeat="openLetter in openLetters" class="">
+      <md-card ng-repeat="openLetter in openLetters | orderBy:'-'" class="">
         <md-card-title>
           <md-card-title-text>
             <h3>{{openLetter.userName}} from {{openLetter.userCity}}, {{openLetter.userState}}.</h3>

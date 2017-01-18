@@ -16,7 +16,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
       $scope.userEmail = "";
       $scope.userName = "";
       $scope.emailBody = "must";
-      $scope.emailExample = "We must act as a sanctuary city for immigrants now more than ever. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionaly, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10years, and are soundly integrated into out local communities.";
+      $scope.emailExample = "";
       $scope.emailIntro = "";
       $scope.emailOutro = "";
       $scope.makeEmailPublic = "";
