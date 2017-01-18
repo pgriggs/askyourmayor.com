@@ -180,7 +180,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
     }
 
     $scope.createPost = function () {
-         
+         if( $scope.postInhibitor !== 'inh') {
           $http({
 
           method: 'POST',
@@ -188,6 +188,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
       }).success(function () {
 
           $scope.successPost = 'show';
+          $scope.postInhibitor = 'inh';
 
       }), function errorCallback(error) {
                   $scope.error = error;
@@ -195,6 +196,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                   // called asynchronously if an error occurs
                   // or server returns response with an error status.
                 };
+          }
     }
 
     $scope.postbutton = function (){
