@@ -114,13 +114,15 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                    $scope.message = "show";
                        for (var index = 0; index < response.data.offices.length; index++) {
                         console.log(response.data.offices[index]);
-                        if (response.data.offices[index].name == 'Mayor')
+                        if (response.data.offices[index].name == 'Mayor'){
                           $scope.theMayor = "here";
-                        debugger
                         }
+                        debugger
+                        
                         if (response.data.offices[index].name == 'Sheriff'){
                           $scope.theSheriff == "here";
                               } else {}
+                      }
                   // this callback will be called asynchronously
                   // when the response is available
                 }, function errorCallback(error) {
@@ -180,7 +182,8 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
     }
 
     $scope.createPost = function () {
-         if( $scope.postInhibitor !== 'inh') {
+         if($scope.postInhibitor !== 'inh') {
+          debugger
           $http({
 
           method: 'POST',
