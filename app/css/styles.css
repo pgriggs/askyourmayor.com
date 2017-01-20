@@ -498,12 +498,11 @@ md-content .product-container {
 
 .footer {
   text-align: center;
-  position: fixed;
+  position: relative;
   bottom:0px;
   left:0px;
   right:0px;
-  background-color: #fff;
-  z-index: 2;
+  background-color: transparent;
 }
 
 .footer h3 {
