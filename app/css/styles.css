@@ -497,6 +497,7 @@ md-content .product-container {
 
 .footer {
   text-align: center;
+  position: fixed;
   bottom:0px;
   left:0px;
   right:0px;
