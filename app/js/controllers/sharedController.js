@@ -120,7 +120,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                         debugger
                         
                         if (response.data.offices[index].name == 'Sheriff'){
-                          $scope.theSheriff == "here";
+                          $scope.theSheriff = "here";
                               } else {}
                       }
                   // this callback will be called asynchronously
