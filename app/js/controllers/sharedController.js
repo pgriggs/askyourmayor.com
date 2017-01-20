@@ -15,7 +15,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
       $scope.userState = "";
       $scope.userEmail = "";
       $scope.userName = "";
-      $scope.emailBody = "must";
+      $scope.emailBody = "Acting as a sanctuary city improves the lives of all city residents. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionally, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10years, and are soundly integrated into out local communities.";
       $scope.emailExample = "";
       $scope.emailIntro = "";
       $scope.emailOutro = "";
@@ -209,9 +209,11 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
 
     $scope.callSheriff = function () {
       $scope.successCallSheriff = 'show';
+      $scope.postEmail()
     }
     $scope.callMayor = function () {
       $scope.successCallMayor = 'show';
+      $scope.postEmail()
     }
 // Select product data when
 

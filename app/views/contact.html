@@ -20,7 +20,7 @@
       <p ng-if="userName !== ''" class="email-intro" ng-model="emailIntro">Dear Mayor & city officials,<br><br>My name is <span ng-bind="userName"></span> and I live in <span ng-bind="userCity"></span>, <span ng-bind="userState"></span>.
       </p>
       <p class="text">
-        <textarea name="comment" id="comment" ng-model="emailBody" cols="50" rows="10" placeholder="It's important that we act as a sanctuary city for immigrants because..."></textarea>
+        <textarea name="comment" id="comment" ng-model="$parent.emailBody"></textarea>
       </p>
       <p ng-if="userName !== ''" class="email-intro" ng-model="emailOutro">Thank you for you time and consideration.<br><br>
       Sincerely,<br>
