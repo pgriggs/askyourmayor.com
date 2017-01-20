@@ -20,8 +20,19 @@
       <p ng-if="userName !== ''" class="email-intro" ng-model="emailIntro">Dear Mayor & city officials,<br><br>My name is <span ng-bind="userName"></span> and I live in <span ng-bind="userCity"></span>, <span ng-bind="userState"></span>.
       </p>
       <p class="text">
-        <textarea name="comment" id="comment" ng-model="$parent.emailBody"></textarea>
+        <textarea name="comment" id="comment" ng-model="emailBody" placeholder="Write your thoughts about becoming a sanctuary city for immigrants here."></textarea>
       </p>
+     <div class="modal-container">
+  <input id="modal-toggle" type="checkbox">
+  <label class="modal-btn" for="modal-toggle">Not sure what to say? Copy our message.</label> 
+  <label class="modal-backdrop" for="modal-toggle"></label>
+  <div class="modal-content">
+    <label class="modal-close" for="modal-toggle">&#x2715;</label>
+    <h2>Our message</h2><hr />
+    <p>Acting as a sanctuary city improves the lives of all our city's residents. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionally, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10years, and are soundly integrated into out local communities.</p><hr />   
+  </div>          
+</div>
+
       <p ng-if="userName !== ''" class="email-intro" ng-model="emailOutro">Thank you for you time and consideration.<br><br>
       Sincerely,<br>
       <span ng-bind="userName"></span>.
@@ -96,4 +107,5 @@
     </form>
   </div>
   </section>
+
 </md-content> 
