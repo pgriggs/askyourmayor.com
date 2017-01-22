@@ -109,7 +109,8 @@
       </div>
       <!-- end for DC mayor -->
       <br>
-      <div ng-if="userState.length >= 2 && theMayor !== 'here' || userState.length >= 2 && dcMayor !== 'here'" class="submit">
+      <div ng-if="dcMayor == undefined">
+      <div ng-if="userState.length >= 2 && theMayor !== 'here'" class="submit">
               <a ng-click="callMayor()" id="button-blue1" validate>
                 <span ng-if="successCallMayor !== 'show'">Post to AskyourMayor.com
                 </span>
@@ -118,6 +119,7 @@
               </a>
               <div class="ease"></div>
         
+      </div>
       </div>
       <br>
       <p ng-if="userState.length >= 2 && theMayor !== 'here'">*Don't see an option to email your mayor or other officials? You can still show your support by posting your message as an open letter on AskYourMayor.com!</p>

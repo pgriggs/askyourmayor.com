@@ -117,11 +117,17 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                         if (response.data.offices[index].name == 'Mayor'){
                           $scope.theMayor = "here";
                         }
-                        debugger
                         
                         if (response.data.offices[index].name == 'Sheriff'){
                           $scope.theSheriff = "here";
                               } else {}
+                      }
+
+                       for (var index = 0; index < response.data.officials.length; index++) {
+                       
+                        if (response.data.officials[index].name == 'Muriel Bowser'){
+                          $scope.dcMayor = "here";
+                        } else {}
                       }
                   // this callback will be called asynchronously
                   // when the response is available
