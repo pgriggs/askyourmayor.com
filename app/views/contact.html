@@ -109,7 +109,7 @@
       </div>
       <!-- end for DC mayor -->
       <br>
-      <div ng-if="userState.length >= 2 && theMayor !== 'here'" class="submit">
+      <div ng-if="userState.length >= 2 && theMayor !== 'here' || userState.length >= 2 && dcMayor !== 'here'" class="submit">
               <a ng-click="callMayor()" id="button-blue1" validate>
                 <span ng-if="successCallMayor !== 'show'">Post to AskyourMayor.com
                 </span>
