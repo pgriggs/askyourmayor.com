@@ -93,14 +93,14 @@
       <div class="submit">
         <span ng-repeat="official in response.officials | filter:'Muriel Bowser'">
            <span ng-if="official.emails[0]">
-              <a ng-click="postEmail()" ng-if="official.emails[0]" ng-href="mailto:{{ official.emails[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com" id="button-blue1" validate><span ng-if="successPost !== 'show'">Email your mayor</span><span ng-if="successPost == 'show'">{{response.officials[officialIndice].emails[0]}}</span></a>
+              <a ng-click="postEmail()" ng-if="official.emails[0]" ng-href="mailto:{{ official.emails[0] }}?subject=My thoughts on becoming a santuary city for immigrants&body=Dear Mayor and city officials,%0D%0A%0D%0Amy name is {{userName}}, and I live in {{userCity}}, {{userState}}.%0D%0A%0D%0A{{emailBody}}%0D%0A%0D%0AThank you for your time and consideration.%0D%0A%0D%0ASincerely,%0D%0A{{userName}}&cc=info@askyourmayor.com" id="button-blue1" validate><span ng-if="successPost !== 'show'">Email your mayor</span><span ng-if="successPost == 'show'">{{official.emails[0]}}</span></a>
               <div class="ease"></div>
               </span>
               <span ng-if="official.phones[0]">
               <a ng-click="callMayor()" ng-href="tel:{{ official.phones[0] }}" id="button-blue1" validate>
                 <span ng-if="successCallMayor !== 'show'">Call your mayor
                 </span>
-                <span ng-if="successCallMayor == 'show'">{{response.officials[officialIndice].phones[0]}}
+                <span ng-if="successCallMayor == 'show'">{{official.phones[0]}}
                 </span>
               </a>
               <div class="ease"></div>
