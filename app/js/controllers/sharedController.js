@@ -4,30 +4,29 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
 	function ($mdEditDialog, $q, $scope, $timeout, $stateParams, $state, $rootScope, MetaService, $http, $filter, $compile, $window) {
   'use strict';
 
+  window.MYSCOPE = $scope
 
 /*  */
-  $rootScope.metaservice = MetaService;
+     $rootScope.metaservice = MetaService;
 /*  */
 
 
 /* user data */
+
       $scope.userCity = "";
       $scope.userState = "";
       $scope.userEmail = "";
       $scope.userName = "";
-      $scope.emailBody = "Acting as a sanctuary city improves the lives of all city residents. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionally, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10years, and are soundly integrated into out local communities.";
       $scope.emailExample = "";
       $scope.emailIntro = "";
       $scope.emailOutro = "";
       $scope.makeEmailPublic = "";
+      $scope.emailBody = "Acting as a sanctuary city improves the lives of all city residents. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionally, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10years, and are soundly integrated into out local communities.";
+
 
       $scope.inputText = '';
 
       $scope.openLetters = [];
-
-      $scope.$watch('inputText', function(newText, oldText) {
-        $scope.emailBody = $scope.inputText;
-      });
 
 /* pagination page size */
   $scope.pageSize = 10;
@@ -267,4 +266,5 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
     console.log('page: ', page);
     console.log('limit: ', limit);
   }
+
 }]);
