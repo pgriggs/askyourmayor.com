@@ -33,7 +33,7 @@
   </div>          
 </div> -->
 
-      <p ng-if="userName !== ''" class="email-intro" ng-model="emailOutro">Thank you for you time and consideration.<br><br>
+      <p ng-if="userName !== ''" class="email-intro" ng-model="emailOutro">Thank you for your time and consideration.<br><br>
       Sincerely,<br>
       <span ng-bind="userName"></span>.
       </p>
@@ -111,10 +111,10 @@
       <br>
       <div ng-if="dcMayor == undefined">
       <div ng-if="userState.length >= 2 && theMayor !== 'here'" class="submit">
-              <a ng-click="callMayor()" id="button-blue1" validate>
-                <span ng-if="successCallMayor !== 'show'">Post to AskyourMayor.com
+              <a ng-click="postToAym()" id="button-blue1" validate>
+                <span ng-if="postToAym !== 'show'">Post to AskyourMayor.com
                 </span>
-                <span ng-if="successCallMayor == 'show'">Success!
+                <span ng-if="postToAym == 'show'">Success!
                 </span>
               </a>
               <div class="ease"></div>
