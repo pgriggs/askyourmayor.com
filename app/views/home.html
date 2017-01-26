@@ -67,7 +67,7 @@
 
     <section class="open-letters">
     <h1>{{ openLetters.length }} public messages sent to mayors & city officials</h1>
-      <div infinite-scroll='loadMore()' infinite-scroll-distance='2'>
+   <!--   <div infinite-scroll='loadMore()' infinite-scroll-distance='2'> -->
       <md-card ng-repeat="openLetter in openLetters | orderBy:'-'" class="">
         <md-card-title>
           <md-card-title-text>
@@ -82,7 +82,7 @@
             <p class="outro">Sincerely,<br>{{ openLetter.userName }}</p>
           </md-card-content>
       </md-card>
-      </div>
+      <!-- </div> -->
      <!-- <dir-pagination-controls></dir-pagination-controls> -- >
     </section>
       

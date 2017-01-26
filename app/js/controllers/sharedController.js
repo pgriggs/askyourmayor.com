@@ -212,12 +212,22 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
       $scope.postEmail()
     }
 
+    $scope.emailSheriff = function () {
+      $scope.successEmailSheriff = 'show';
+      $scope.postEmail()
+    }
+
     $scope.callSheriff = function () {
       $scope.successCallSheriff = 'show';
       $scope.postEmail()
     }
     $scope.callMayor = function () {
       $scope.successCallMayor = 'show';
+      $scope.postEmail()
+    }
+
+    $scope.emailMayor = function () {
+      $scope.successEmailMayor = 'show';
       $scope.postEmail()
     }
     $scope.postToAym = function () {

@@ -784,7 +784,7 @@ input:focus, textarea#comment:focus {
   font-family: 'Varela Round', sans-serif;
 }
 
-#button-blue1{
+.button-blue1{
   float:left;
   width: 100%;
   border: #fbfbfb solid 2px;
@@ -802,7 +802,7 @@ input:focus, textarea#comment:focus {
   border-radius: 3px;
 }
 
-#button-blue2{
+.button-blue2{
   float:left;
   width: 100%;
   border: #fbfbfb solid 2px;
@@ -825,7 +825,7 @@ input:focus, textarea#comment:focus {
   text-align: center;
 }
 
-#button-blue1:hover, #button-blue2:hover {
+.button-blue1:hover, .button-blue2:hover {
   background-color: rgba(0,0,0,0);
   color: #0493bd;
 }
