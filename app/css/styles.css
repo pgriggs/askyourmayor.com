@@ -389,6 +389,16 @@ table.md-table td.md-cell {
     padding: 14% 0 9%;
 }
 
+.hero h4 {
+  margin-top: -5px;
+}
+
+.hero h4 a {
+  color: #2e97de;
+  text-decoration: none;
+}
+
+
 .hero.loading.fadeOut {
   min-height:90vh;
   background-image: url(/assets/img/new-header.jpg);
