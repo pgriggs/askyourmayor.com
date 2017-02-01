@@ -21,7 +21,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
       $scope.emailIntro = "";
       $scope.emailOutro = "";
       $scope.makeEmailPublic = "";
-      $scope.emailBody = "Acting as a sanctuary city improves the lives of all city residents. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionally, over 66% of unauthorized immigrants residing in the U.S. have been building lives here for over 10 years, and are soundly integrated into our local communities.";
+      $scope.emailBody = "Acting as a sanctuary city improves the lives of all city residents. By encouraging all members of our communities to work with police without fear of deportation, authorities can do a better job of keeping our communities peaceful. Additionally, two out of every three unauthorized immigrants residing in the U.S. have been building lives here for over 10 years, and are soundly integrated into our local communities.";
 
 
       $scope.inputText = '';
@@ -93,8 +93,13 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
     }
     
 
+      // expose data from for loop within getCivicData function
+      $scope.mayorEmail = "";
+      $scope.SheriffEmail = "";
+      $scope.mayorPhone = "";
+      $scope.sheriffPhone = "";
+      // api call for mayor & city officals
 
-     // api call for mayor & city officals
 
       $scope.getCivicData = function (){
 
@@ -111,23 +116,46 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                   $scope.response = response.data; 
                   console.log($scope.response)
                    $scope.message = "show";
+                      // loop through list of elected offices google civic API response
                        for (var index = 0; index < response.data.offices.length; index++) {
                         console.log(response.data.offices[index]);
+                        // check if mayor data exists in google civic API response 
                         if (response.data.offices[index].name == 'Mayor'){
-                          $scope.theMayor = "here";
-                        }
-                        
-                        if (response.data.offices[index].name == 'Sheriff'){
-                          $scope.theSheriff = "here";
-                              } else {}
-                      }
+                          $scope.theMayor = 'here';
+                          var mayorIndex = response.data.offices[index].officialIndices[0];
+                            // loop through array of officials from API reposonse to expose mayor's email to $scope
+                            for (var index = 0; index < response.data.officials.length; index++) {
+                              $scope.mayorEmail = response.data.officials[mayorIndex].emails[0];
+                              $scope.mayorPhone = response.data.officials[mayorIndex].phones[0];
+                            }
+                            // loop through array of officials from API reposonse
 
-                       for (var index = 0; index < response.data.officials.length; index++) {
-                       
-                        if (response.data.officials[index].name == 'Muriel Bowser'){
-                          $scope.dcMayor = "here";
                         } else {}
                       }
+                        // loop through list of elected offices google civic API response
+                         for (var index = 0; index < response.data.offices.length; index++) {
+                          // check if mayor data exists in google civic API response 
+                          if (response.data.offices[index].name == 'Sheriff'){
+                            $scope.theSheriff = 'here';
+                            var sheriffIndex = response.data.offices[index].officialIndices[0];
+                              // loop through array of officials from API reposonse to expose mayor's email to $scope
+                              for (var index = 0; index < response.data.officials.length; index++) {
+                                $scope.sheriffEmail = response.data.officials[sheriffIndex].emails[0];
+                                $scope.sheriffPhone = response.data.officials[sheriffIndex].phones[0];
+                                debugger
+                              }
+                              // loop through array of officials from API reposonse
+
+                          } else {}
+                        }                      
+                      // catch for Washington D.C. mayor's contact data - it's not associated with an office called "mayor" in the google civic database for some reason THANKS OBAMA
+                      // for (var index = 0; index < response.data.officials.length; index++) {
+                       
+                      //  if (response.data.officials[index].name == 'Muriel Bowser'){
+                      //    $scope.dcMayor = "here";
+                      //    $scope.dcMayorEmail = response.data.officials[index].emails[0];
+                      //  } else {}
+                      //}
                   // this callback will be called asynchronously
                   // when the response is available
                 }, function errorCallback(error) {
@@ -188,7 +216,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
 
     $scope.createPost = function () {
          if($scope.postInhibitor !== 'inh') {
-          debugger
+          
           $http({
 
           method: 'POST',
@@ -215,20 +243,24 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
     $scope.emailSheriff = function () {
       $scope.successEmailSheriff = 'show';
       $scope.postEmail()
+      $window.location = "mailto:" + $scope.sheriffEmail + "?cc=team@askyourmayor.com&subject=My%20thoughts%20on%20becoming%20a%20sanctuary%20city%20for%20immigrants&body=" + "Dear mayor and city officials,%0D%0A%0D%0AMy name is " + $scope.userName + " and I live in " + $scope.userCity + ", " + $scope.userState + ".%0D%0A%0D%0A" + $scope.emailBody + "%0D%0A%0D%0ASincerely,%0D%0A" + $scope.userName;
     }
 
     $scope.callSheriff = function () {
       $scope.successCallSheriff = 'show';
       $scope.postEmail()
+      $window.location = "tel:" + $scope.sheriffPhone;
     }
     $scope.callMayor = function () {
       $scope.successCallMayor = 'show';
       $scope.postEmail()
+      $window.location = "tel:" + $scope.mayorPhone;
     }
 
     $scope.emailMayor = function () {
       $scope.successEmailMayor = 'show';
       $scope.postEmail()
+            $window.location = "mailto:" + $scope.mayorEmail + "?cc=team@askyourmayor.com&subject=My%20thoughts%20on%20becoming%20a%20sanctuary%20city%20for%20immigrants&body=" + "Dear mayor and city officials,%0D%0A%0D%0AMy name is " + $scope.userName + " and I live in " + $scope.userCity + ", " + $scope.userState + ".%0D%0A%0D%0A" + $scope.emailBody + "%0D%0A%0D%0ASincerely,%0D%0A" + $scope.userName;
     }
     $scope.postToAym = function () {
       $scope.postToAym = 'show';
