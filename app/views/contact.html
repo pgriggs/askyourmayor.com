@@ -86,7 +86,7 @@
             </span>
         <br>
       </div>
-      <div ng-if="!mayorEmail && !sheriffEmail" class="submit">
+      <div ng-if="!mayorEmail && !sheriffEmail && userState.length >= 2 && theMayor !== 'here'" class="submit">
               <a ng-click="postToAym()" class="button-blue1" validate>
                 <span ng-if="postToAym !== 'show'">Post to AskyourMayor.com
                 </span>

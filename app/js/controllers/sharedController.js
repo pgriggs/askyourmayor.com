@@ -116,7 +116,7 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                   $scope.response = response.data; 
                   console.log($scope.response)
                    $scope.message = "show";
-                      // loop through list of elected offices google civic API response
+                      // loop through list of elected offices from google civic API response
                        for (var index = 0; index < response.data.offices.length; index++) {
                         console.log(response.data.offices[index]);
                         // check if mayor data exists in google civic API response 
@@ -134,17 +134,16 @@ angular.module('shared', ['ngMaterial', 'md.data.table'])
                       }
                         // loop through list of elected offices google civic API response
                          for (var index = 0; index < response.data.offices.length; index++) {
-                          // check if mayor data exists in google civic API response 
+                          // check if sheriff data exists in google civic API response 
                           if (response.data.offices[index].name == 'Sheriff'){
                             $scope.theSheriff = 'here';
                             var sheriffIndex = response.data.offices[index].officialIndices[0];
-                              // loop through array of officials from API reposonse to expose mayor's email to $scope
+                              // loop through array of officials from API reposonse to expose sheriff's email to $scope
                               for (var index = 0; index < response.data.officials.length; index++) {
                                 $scope.sheriffEmail = response.data.officials[sheriffIndex].emails[0];
                                 $scope.sheriffPhone = response.data.officials[sheriffIndex].phones[0];
                                 debugger
                               }
-                              // loop through array of officials from API reposonse
 
                           } else {}
                         }                      
